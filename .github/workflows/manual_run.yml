@@ -14,10 +14,17 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn test verify
+    - name: Copy Test Results
+      if: always()
+      run: |
+          mkdir -p resultsFolder
+          pwd
+          ls
+          mv /home/runner/work/restApiFrm_sample/restApiFrm_sample/target/surefire-reports* resultsFolder  
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: always()
       with:
         name: Test Results
-        path: ${{ github.workspace }}/target/surefire-reports/TEST-TestSuite.xml
+        path: resultsFolder/TEST-TestSuite.xml
         reporter: java-junit  
