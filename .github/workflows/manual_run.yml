@@ -21,13 +21,7 @@ jobs:
           pwd
           ls
           mv /home/runner/work/restApiFrm_sample/restApiFrm_sample/target/surefire-reports* resultsFolder  
-    - name: Test Report
-      uses: dorny/test-reporter@v1
-      if: always()
-      with:
-        name: Test Results
-        path: resultsFolder/TEST-TestSuite.xml
-        reporter: java-junit  
+    
     - name: Output the run details
       uses: actions/upload-artifact@v2
       with:
