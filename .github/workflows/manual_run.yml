@@ -28,3 +28,8 @@ jobs:
         name: Test Results
         path: resultsFolder/TEST-TestSuite.xml
         reporter: java-junit  
+    - name: Output the run details
+      uses: actions/upload-artifact@v2
+      with:
+        name: RunReports
+        path: resultsFolder    
