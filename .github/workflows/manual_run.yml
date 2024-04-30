@@ -23,14 +23,14 @@ jobs:
           mv /home/runner/work/restApiFrm_sample/restApiFrm_sample/target/surefire-reports* resultsFolder  
     - name: Upload Test Results
       uses: actions/upload-artifact@v2
-      if: always()
+      if: success() || failure()
       with:
         name: RunReports
         path: resultsFolder
         
     - name: Test Report
       uses: dorny/test-reporter@v1
-      if: always()
+      if: success() || failure()
       with:
         name: TestNG Report
         path:  resultsFolder/surefire-reports/TEST-TestSuite.xml                            
