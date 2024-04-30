@@ -27,11 +27,11 @@ jobs:
       with:
         name: RunReports
         path: resultsFolder
+        
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: always()
       with:
-        name: TestsResults
-        path: "**resultsFolder/surefire-reports/TEST-TestSuite.xml"                            
+        name: TestNG Report
+        path:  ${{ github.workspace }}/target/surefire-reports/TEST-TestSuite.xml                            
         reporter: java-junit
-        fail-on-error: false
