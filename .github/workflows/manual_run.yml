@@ -22,8 +22,9 @@ jobs:
           ls
           mv /home/runner/work/restApiFrm_sample/restApiFrm_sample/target/surefire-reports* resultsFolder  
     
-    - name: Output the run details
+    - name: Upload Test Results
       uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: RunReports
-        path: resultsFolder    
+        path: resultsFolder
