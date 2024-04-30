@@ -1,0 +1,13 @@
+<suite name="TestCycles">
+    <test name="Reqs">
+        <classes>
+            <class name="com.rest.TestControllerReqs" />
+        </classes>
+    </test>
+    <test name="CatDog">
+        <classes>
+            <class name="com.rest.TestController" />
+        </classes>
+    </test>
+</suite>
+
